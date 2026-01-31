@@ -1,13 +1,20 @@
 from datetime import datetime
 import random
 
-def get_days_from_today(date):
+def get_days_from_today(date: str) -> int:
+    '''Returns the number of days from the given date to today.'''
+
     date = datetime.strptime(date, "%Y-%m-%d").date()
     today = datetime.today().date()
     delta = today - date
     return delta.days
 
 def get_numbers_ticket(min: int, max: int, quantity: int) -> list[int]:
+    '''
+    Generates a sorted list of length equal to the value of the argument called
+    quantity of unique random numbers within a specified range.
+    '''
+
     if type(min) is not int or type(max) is not int or type(quantity) is not int:
         raise TypeError("All parameters must be integers.")
     if quantity > (max - min + 1):
@@ -18,7 +25,7 @@ def get_numbers_ticket(min: int, max: int, quantity: int) -> list[int]:
         raise ValueError("Maximum value must not exceed 1000.")
     if min > max:
         raise ValueError("Minimum value cannot be greater than maximum value.")
-        
+
     res = set()
 
     while len(res) < quantity:
