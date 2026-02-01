@@ -16,11 +16,7 @@ def get_numbers_ticket(min: int, max: int, quantity: int) -> list[int]:
         raise ValueError("Maximum value must not exceed 1000.")
     if min > max:
         raise ValueError("Minimum value cannot be greater than maximum value.")
-
-    res = set()
-
-    while len(res) < quantity:
-        num = random.randint(min, max)
-        res.add(num)
     
+    res = random.sample(range(min, max + 1), quantity)
+
     return sorted(list(res))
