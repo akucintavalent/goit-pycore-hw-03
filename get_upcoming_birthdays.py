@@ -15,6 +15,9 @@ def get_upcoming_birthdays(users: list[dict]) -> list[str]:
         birthday = parse_date(user['birthday'])
         birthday_this_year = birthday.replace(year=today.year)
         days_until_birthday = (birthday_this_year - today).days
+        if days_until_birthday < 0:
+            birthday_this_year = birthday_this_year.replace(year=today.year + 1)
+            days_until_birthday = (birthday_this_year - today).days
 
         if 0 <= days_until_birthday <= 7:
             if birthday_this_year.weekday() in [5, 6]:  # Saturday or Sunday
