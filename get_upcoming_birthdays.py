@@ -1,6 +1,6 @@
 from datetime import datetime, timedelta, date
 
-def get_upcoming_birthdays(users: list[dict]) -> list[str]:
+def get_upcoming_birthdays(users: list[dict]) -> list[dict]:
     '''
     Returns a sorted list of users who have birthdays in the next 7 days,
     adjusting for weekends by moving celebrations to the following Monday.
