@@ -6,7 +6,7 @@ def get_numbers_ticket(min: int, max: int, quantity: int) -> list[int]:
     quantity of unique random numbers within a specified range.
     '''
 
-    if type(min) is not int or type(max) is not int or type(quantity) is not int:
+    if not isinstance(min, int) or not isinstance(max, int) or not isinstance(quantity, int):
         raise TypeError("All parameters must be integers.")
     if quantity > (max - min + 1):
         raise ValueError("Quantity exceeds the range of unique numbers available.")
